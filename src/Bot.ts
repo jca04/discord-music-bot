@@ -42,11 +42,9 @@ export class Bot {
         try {
           const commandModule = await import(commandPath);
 
-          // Extraer la clase correctamente
           const CommandClass =
             commandModule.default.default || Object.values(commandModule)[0];
 
-          // Verificar si es una clase válida
           if (typeof CommandClass !== "function") {
             console.warn(
               `⚠️  No se pudo cargar la clase de comando en ${file}`
